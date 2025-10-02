@@ -1,5 +1,5 @@
-from .book import Book
-from .book_service import BookService
+from app.book import Book
+from app.book_service import BookService
 
 
 def main(book: Book, commands: list[tuple[str, str]]) -> None | str:
@@ -14,5 +14,19 @@ def main(book: Book, commands: list[tuple[str, str]]) -> None | str:
 
 
 if __name__ == "__main__":
-    sample_book = Book("Sample Book", "This is some sample content.")
-    print(main(sample_book, [("display", "reverse"), ("serialize", "xml")]))
+    sample_book = Book(
+        "Sample Book",
+        "This is some sample content."
+    )
+    print(
+        main(
+            sample_book, [
+                ("display", "console"),
+                ("display", "reverse"),
+                ("print", "console"),
+                ("print", "reverse"),
+                ("serialize", "json"),
+                # ("serialize", "xml"),
+            ]
+        )
+    )
